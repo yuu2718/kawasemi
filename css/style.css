@@ -1,0 +1,2361 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*************************************************************************************
+***
+*** 共通
+***
+*************************************************************************************/
+body{
+	font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, sans-serif;
+	font-size: 12px;
+
+	-ms-overflow-style: none;  /* スクロールバー非表示(IE, Edge) */
+	scrollbar-width: none; /*スクロールバー非表示(firefox)*/
+
+}
+cite{
+	font-style: normal;
+}
+body.noscroll{
+	overflow: hidden;
+}
+/*スクロールバー非表示（chrome, Safari）*/
+body::-webkit-scrollbar {
+    display:none;
+}
+
+.wrapper {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.activityaccessaboutus__mrgin{margin-bottom:170px;}
+
+@media screen and (max-width:500px){
+	.wrapper{
+		width: 90vw;
+		margin: 0 auto;
+	}
+}
+/*****************************************************************
+****  ふわっとした表示                                           ****
+*****************************************************************/
+.effect-fade {
+	opacity : 0;
+	transform : translate(0, 100px);
+	transition : transform 1000ms, opacity 1000ms;
+	transition-delay: 100ms;
+}
+.effect-fade.onSpot {
+	opacity : 0;
+	transform : translate(0, 0);
+}
+
+.effect-fade.fromRight{
+	transform : translate(100px, 0);
+}
+.effect-fade.fromLeft{
+	transform : translate(-100px, 0);
+}
+
+.effect-fade.effect-scroll {
+	opacity : 1;
+	transform : translate(0, 0);
+}
+
+/*************************************************************************************
+***** スクロールアニメーション用
+*************************************************************************************/
+.data-item.ratio .ratioImg{
+	transform: translateY(30px);
+	opacity: 0;
+}
+.data-item.ratio  .ratioImg.active{
+	transform: translateY(0px);
+	opacity: 1;
+	transition: 1.5s;
+}
+
+
+/*************************************************************************************
+***** ハンバーガーメニュー
+*************************************************************************************/
+.burger-btn{
+    display: block;      
+    width: 80px;
+    border:none;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.7s;
+	padding-top: 30px;
+	z-index: 9999999;
+}
+.bar{      
+    width: 39px;      
+    height: 2px;     
+    display: block;
+    background-color: #fff;
+    margin-bottom: 9px;
+    margin: 0px auto 9px auto;
+    transition: transform 0.7s;
+}
+.burger-btn.open .bar{
+    background-color: #959494;
+}
+.burger-btn.open .bar_top{
+    transform: translateY(11px) rotate(135deg);
+    transition-delay: 400ms;
+}
+.burger-btn.open .bar_mid{    
+    transform: translateX(-18px) scaleX(0);
+}
+.burger-btn.open .bar_bottom{
+    margin-bottom: 0px;
+    transform: translateY(-11px) rotate(-135deg);
+    transition-delay: 400ms;
+}
+
+.burger-btn:hover .bar{
+	background-color: rgb(56, 180, 139) !important;
+}
+
+
+
+/*************************************************************************************
+***** グローバルナビ
+*************************************************************************************/
+.gl-nav-wrapper{
+    display: none;
+	position:fixed;
+	background:url(../img/common/gl-nav-bg-image.png);
+	width: 100%;
+	height: 100vh;
+	z-index: 9999990;
+}
+.header-logo{
+	position: fixed;
+	top: 30px;
+	left: -100px;	
+	z-index: 9999999;
+	min-width: 90px;
+	min-height: 90px;
+	transition: filter 0.7s;
+	transition: all 1s;
+}
+.header-logo.onmenu,
+.header-logo.black {
+	filter: brightness(14%);
+}
+.header-logo.inview{
+	left: 30px;
+
+}
+
+.header-menu-btn{
+	position: fixed;
+	top: 30px;
+	right: -100px;
+	transition: right 1s, transform 0.7s;	
+}
+.header-menu-btn.inview{
+	right: 30px;
+}
+.header-menu-btn.black > .bar{
+	background-color: #040404;
+}
+
+.header-nav-contents{
+	display: flex;
+	flex-direction: row-reverse;
+	margin-top: 15.8vh;
+	margin-right: 10vw;
+}
+
+.haeder-nav__reserv{
+	border-left: 1px solid #040404;
+	height: 68.4vh;
+	display: flex;
+	flex-direction: column;
+}
+.haeder-nav__reserv > a {
+	margin: auto 3vw;
+}
+.nav-list{
+	display: flex;
+	flex-direction: row-reverse;
+	list-style: none;
+	margin-top: 57px;
+	margin-right: 3vw;
+	width: 50%;
+}
+.nav-item{
+	margin-left: 3.1vw;
+}
+.nav-item:last-child{
+	margin: 0;
+}
+
+.nav-item__link{
+	display:flex;
+	flex-direction: column;
+	text-decoration: none;
+	color: #040404;
+	
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+
+}
+.nav-item__title-en{
+	font-size: 10px;
+	display: block;
+	font-family: 'Shippori Mincho', serif;
+}
+.nav-item__title{
+	font-size: 1.75rem;
+	display: block;
+	font-family: 'Shippori Mincho', serif;
+}
+
+@media screen and (max-width:500px){
+	.header-logo{
+		top: 10px;
+		width: 60px;
+		min-width: 60px;
+		min-height: 60px;
+	}
+	.header-logo.inview{
+		left: 30px;
+	}
+	.header-menu-btn{
+		top: 0px;
+	}
+	.header-menu-btn.inview{
+		right: 10px;
+	}
+	.gl-nav-wrapper{
+		width: 100vw;
+	}
+	.nav-list{
+		display: block;
+		margin-top: 57px;
+		margin-right: 3vw;
+		width: 50%;
+	}
+	.nav-item {
+	    margin-bottom: 25px;
+	}
+	.nav-item:last-child{
+		margin-left: 3.1vw;
+	}
+	.nav-item__link{
+		display:flex;
+		flex-direction: column;
+		text-decoration: none;
+		color: #040404;
+		
+		-ms-writing-mode: initial;
+		writing-mode: initial;
+	}
+	
+	.nav-item__title{
+		font-size: 1.0rem;
+	}
+	
+
+}
+/*************************************************************************************
+***** フッター
+*************************************************************************************/
+footer{
+	background-image:url(../img/common/footer_bg.png);
+	color: #fff;
+	font-family: 'Shippori Mincho', serif;
+}
+footer a{
+	color: #fff;
+	text-decoration: none;
+}
+.footer__to-top-btn{
+	position: relative;
+	cursor: pointer;
+}
+
+.footer__to-top-btn > img{
+	position:absolute;
+	top: -75px;
+	right: 0;
+	width: 97px;
+	transition: 0.5s;
+}
+.footer__to-top-btn > img:hover{
+	transform: rotate(15deg);
+}
+.footer__contents {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+}
+
+.footer__info{
+	flex: 1 1 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	margin-right: 50px;
+}
+.footer__info__tel{
+	font-size: 24px;
+	margin-bottom: 51px;
+}
+.footer__info__tel > span{
+	font-size: 12px;
+}
+.footer__info__address{
+	font-size: 14px;
+}
+.footer__info__address > span{
+	font-size: 12px;
+}
+
+.footer__menu{
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+	font-family: 'Shippori Mincho', serif;
+	font-size: 20px;
+	list-style:none;
+	flex: 1 1 50%;
+	
+	height: 310px;
+	margin-top: 472px;
+	margin-right: 130px;
+	width:100%;
+}
+.footer__menu > li{
+	margin-left: 7.2%;
+}
+.footer__bottom {
+	display: flex;
+	justify-content: center;
+	height: 50px;
+}
+.footer__bottom > p {
+	margin-right: 50px;
+}
+
+@media screen and (max-width:500px){
+	.footer__contents{
+		flex-direction: column-reverse;
+		width: 85vw;
+	}
+	.footer__info{
+		align-items: flex-start;
+		margin-right: 0;
+		width: 100%;
+	}
+	.footer__info > img {
+		width: 70px;
+		margin-bottom: 20px;
+	}
+	.footer__info__tel{
+		font-size: 18px;
+	    margin-bottom: 25px;
+	}
+	.footer__menu{
+	    display: flex;
+	    flex-wrap: wrap;
+		writing-mode: initial;
+    	font-size: 15px;
+    	list-style: none;
+    	height: 310px;
+	    margin-top: 20px;
+    	margin-right: 0px;
+		margin-bottom: 30px;
+	}
+	.footer__menu > li {
+		width: 35vw;
+		margin-bottom: 20px;
+		position: relative;
+	}
+	.footer__menu > li:nth-child(odd){
+		margin-left: 0;
+	}
+	.footer__menu > li > a::before{
+		content: "";
+		display: inline-block;
+		height: 20%;
+		width: 8px;
+		border-top: 1px solid #fff;
+		margin-right: 6px;
+		position: absolute;
+    	top: 50%;
+    	left: -15px;
+	}
+
+	.footer__bottom{
+		display:block;
+		width: 85vw;
+		margin-top: 20px;
+		margin-left: auto;
+		margin-right:auto;
+	}
+	.footer__bottom > p {
+    	margin-right: 20px;
+	}
+}
+
+/*************************************************************************************
+***** heroヘッダスクロールイメージ
+*************************************************************************************/
+.hero__image{
+	position: relative;
+}
+.hero__footer{
+	position: absolute;
+	left:50%;
+	bottom: 20%;
+	transform: translateX(-50%);
+	height: 70px;
+	width: 22px;
+	overflow: hidden;
+	z-index: 20;
+}
+.scroll-arrow{
+	position: absolute;
+	top:-25px;
+	left: 0;
+	animation: hero__footer__arrow__anime 2s infinite;
+}
+.scroll-text{
+	position: absolute;
+	transform: rotate(90deg);
+    color: rgba(255, 255, 255, 0.7);
+	top:11px;
+	left: -3px;
+	z-index: 2;
+	font-size: 12px;
+}
+@keyframes hero__footer__arrow__anime{
+	0%,
+	50%,
+	100%{
+		transform: translateY(-10%);
+	}
+	30%{
+		transform: translateY(0);
+	}
+}
+/*************************************************************************************
+***** 予約ボタン
+*************************************************************************************/
+.reservation__btn{
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+	padding: 20px 10px;
+	border-left: 1px solid rgba(255, 255, 255, 0.2);
+	z-index: 999990;
+	font-family: 'Shippori Mincho', serif;
+	font-size: 20px;
+	position: relative;
+	height: 180px;
+	/* background: rgba(237,229,98,0.5); */
+	background: rgba(56, 180, 139, 0.1);
+}
+.reservation__btn::before{
+	content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: -1px;
+    width: 1px;
+    height: 46px;
+    background-color: rgba(255, 255, 255, 1.0);
+    transition-property: width,height,background-color;
+    transition-duration: 240ms;
+    transition-timing-function: cubic-bezier(.165,.84,.44,1);
+}
+.reservation__btn:hover::before{
+	height: 100%;
+}
+
+/* 飾り線の色　黒バージョン*/
+.reservation__btn.black{
+	border-left: 1px solid rgba(4, 4, 4, 0.2);
+}
+.reservation__btn.black::before{
+    background-color: rgba(4, 4, 4, 1.0);
+}
+
+.side{
+	position: fixed;
+	top: 70%;
+	transform: translateY(-50%);
+	transition: all 0.6s ease-in;
+}
+.side.right{
+	right: -50px;
+}
+.side.right.inview{
+	right: 50px;
+}
+
+.side > a {
+	color: #fff;
+	text-decoration: none;
+}
+.side.black > a {
+	color: #040404;
+	text-decoration: none;
+}
+
+@media screen and (max-width:500px){
+	.side.right.inview{
+		right: 20px;
+	}
+}
+/*************************************************************************************
+***** ローダ(pace.js)用
+*************************************************************************************/
+#global-container{
+	opacity: 0;
+}
+.pace-done #global-container{
+	opacity: 1;
+	transition: opacity 1s;
+}
+.pace .pace-progress-inner{
+	background-image: url(../img/common/loader_okotonushi_btn.png);
+	background-size: contain;
+	background-position: center;
+    background-repeat: no-repeat;
+	width: 97px;
+	height: 97px;
+	margin: 0 auto;
+
+	animation: 3s linear 0s infinite pager-rotate-anime;
+}
+@keyframes pager-rotate-anime {
+	0%{
+		transform: translateX(800px) rotate(-30deg);
+	}
+	20%{
+		transform: translateX(480px) rotate(10deg);
+	}
+	40%{
+		transform: translateX(160px) rotate(-30deg);
+	}
+	60%{
+		transform: translateX(-160px) rotate(10deg);
+	}
+	80%{
+		transform: translateX(-480px) rotate(-30deg);
+	}
+	100%{
+		transform: translateX(-800px) rotate(10deg);		
+	}
+}
+.pace {
+	z-index: 2000;
+	position: fixed;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100px;
+	height: 100px;
+}
+
+.pace .pace-progress {
+	transform: none !important;
+	text-align: center;
+
+}
+
+.pace .pace-progress:after {
+	content: attr(data-progress-text);
+	display: block;
+	font-size: 2em;
+	font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, sans-serif;
+	letter-spacing: 0.5em;
+}
+
+.pace.pace-inactive {
+	display: none;
+}
+
+/*************************************************************************************
+***
+*** Top　ページ
+***
+*************************************************************************************/
+
+.top__text-space-style{
+	line-height: 2em;
+	letter-spacing: 0.2em;
+}
+.top__link{
+	color: inherit;
+	text-decoration: none;
+	position: relative;
+
+	transition-duration: 840ms;
+}
+.top__link::before{
+	content: "";
+    display: block;
+    position: absolute;
+    top: 7px;
+    left: -2px;
+    width: 0px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition-property: width,height,background-color,transform;
+    transition-duration: 840ms;
+    transition-timing-function: cubic-bezier(.165,.84,.44,1);
+}
+
+.top__oheya_btn .top__link::before,
+.top__taiken_btn .top__link::before
+{
+	content: "";
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: -2px;
+    width: 0px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition-property: width,height,background-color,transform;
+    transition-duration: 840ms;
+    transition-timing-function: cubic-bezier(.165,.84,.44,1);
+}
+
+/* ホワイトエリアでの⇒の色指定 */
+.top__white__area .top__link::before{
+	background-color: rgba(4, 4, 4, 0.3);
+}
+
+.top__link:hover::before{
+	width: 110%;
+}
+
+.top__link > .top__blackarea__btn,
+.top__link > .top__whitearea__btn{
+	transition-duration: 840ms;
+
+}
+.top__link:hover > .top__blackarea__btn,
+.top__link:hover > .top__whitearea__btn{
+	transform: translateX(8px);
+}
+/*************************************************************************************
+***
+*** TOPひーろーへったー
+***
+*************************************************************************************/
+
+
+.main_imgBox {
+	width:100%;
+	height:100vh;
+	min-width:960px;
+	position:relative;
+	overflow: hidden;
+	
+}
+
+.main_img {
+    z-index:10;
+	width:100%;
+	height:100vh;
+    opacity: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-animation: top__slider-anime 36s 0s infinite;
+    animation: top__slider-anime 36s 0s infinite; 
+}
+
+
+.main_img:nth-of-type(2) {
+      -webkit-animation-delay: 6s;
+      animation-delay: 6s; }
+
+    .main_img:nth-of-type(3) {
+      -webkit-animation-delay: 12s;
+      animation-delay: 12s; }
+
+    .main_img:nth-of-type(4) {
+      -webkit-animation-delay: 18s;
+      animation-delay: 18s; }
+
+    .main_img:nth-of-type(5) {
+      -webkit-animation-delay: 24s;
+      animation-delay: 24s; }
+
+    .main_img:nth-of-type(6) {
+      -webkit-animation-delay: 30s;
+      animation-delay: 30s; }
+	  
+@keyframes top__slider-anime {
+  0% {
+        opacity: 0;
+    }
+    8% {
+        opacity: 1;
+    }
+    17% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+        z-index:9;
+    }
+    100% { opacity: 0 }
+}
+
+.top__logo{
+	position:absolute;
+	left:50%;
+	transform:translatex(-50%);
+	top:40%;
+	z-index:20;
+}
+
+/*
+.top__header{
+	background-image:url(../img/top/top_img.png);
+	background-size:cover;
+	background-position:50% 100%;
+	height:100vh;
+	min-width:960px;
+	position:relative;
+	
+}
+*/
+/*************************************************************************************
+***
+*** TOPひーろーへったー
+***
+*************************************************************************************/
+
+.top__logo{
+	position:absolute;
+	left:50%;
+	transform:translatex(-50%);
+	top:40%;
+}
+
+.top__black__area{
+ background-color:#090909;
+ 
+}
+
+.top__blackarea__btn{
+	color:white;
+	text-combine-upright:all;
+	display: inline-block;
+	margin-bottom: 8px;
+}
+
+.top__whitearea__btn{
+	color:black;
+	text-combine-upright:all;
+	display: inline-block;
+	margin-bottom: 8px;
+}
+
+
+.top__aboutbox1{
+	background-color:#090909;
+}
+.top__aboutbox1__wrapper{
+	display:flex;
+	justify-content:center;
+	height:770px;	
+	}
+
+.top__aboutbox1 p{
+	margin:200px 30px 240px 0;
+}
+
+.top__inoshishi1{
+	height:109px;
+	margin-top:300px;
+	margin-left:440px;
+}
+
+.top__aboutbox1 h2{
+	color:white;
+	font-size:20px;
+	font-family: 'Shippori Mincho', serif;
+	writing-mode:vertical-rl;
+	margin-top:180px;
+	margin-right:500px;
+}
+
+
+.top__aboutbox1 p{
+	color:white;
+	font-family: 'Shippori Mincho', serif;
+	writing-mode:vertical-rl;
+}
+
+.top__aboutbox2{
+	background-image:url(../img/top/top_about_img.png);
+	background-size: cover;
+    background-position: center;
+}
+
+.top__aboutbox2__wrapper{
+	display:flex;
+	padding: 260px 41.7% 310px 54.6%;
+	height:845px;
+}
+
+.top__aboutbox2__wrapper  p {
+	line-height: 2em;
+	letter-spacing: 0.2em;
+}
+
+.top__aboutbox2 p{
+	color:white;
+	font-family: 'Shippori Mincho', serif;
+	writing-mode:vertical-rl;
+}
+
+
+
+
+.top__onsenbox{
+	background-image:url(../img/top/top_onsen.png);
+}
+
+
+.top__titlebox img{
+	width:115px;
+	height:152px;
+	margin:170px auto 90px auto;
+	display:block;
+		
+}
+
+
+.top__titlebox__wrapper{
+	height:370px;
+}
+
+
+
+.top__onsenbox p{
+	color:white;
+	font-family: 'Shippori Mincho', serif;
+	writing-mode:vertical-rl;
+}
+
+.top__onsen__btn{
+	margin:0 60px 0 0;
+}
+ 
+	
+.top__onsenbox__wrapper{
+	height:810px;
+	display:flex;
+	padding:300px 780px 160px 430px;
+}
+
+.top__onsenbox__wrapper > p {
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.top__osyokujibox p{
+	font-family: 'Shippori Mincho', serif;
+	writing-mode:vertical-rl;
+}
+
+
+.top__osyokuji__text{
+	display:flex;
+}
+
+.top__osyokuji__btn{
+	margin-right:40px;
+}
+
+.top__osyokuji_imgbox{
+	position:relative;
+}
+
+.top__osyokuji_img2{
+	position:absolute;
+	top:-160px;
+	right:232px;
+}
+
+.top__osyokuji_img3{
+	position:absolute;
+	top:285px;
+	right:322px;
+	z-index:100;
+}
+	
+.top__osyokuji_img4{
+	position:absolute;
+	top:471px;
+	right:6px;
+	z-index:50;
+}
+
+.top__oheya__titlebox{
+	width:115px;
+	height:152px;
+	margin:270px auto 90px auto;
+	display:block;
+}
+
+.top__oheyabox p{
+	font-family: 'Shippori Mincho', serif;
+	writing-mode:vertical-rl;
+}
+
+.top__inoshishi2{
+	width:103px;
+	height:72px;
+	margin-top:250px;
+}
+
+.top__oheyabox{
+	position:relative;
+	height:1000px;
+}
+
+
+.top__oheya_img1{
+	position:absolute;
+	left:-85px;
+	z-index:100;
+}
+
+
+
+.top__oheya_img2{
+	position:absolute;
+	top:75px;
+	right:-65px;
+}
+
+.top__oheya_img3{
+	position:absolute;
+	top:520px;
+	left:643px;
+	z-index:50;
+}
+
+.top__oheya__text{
+	display:flex;
+	position:absolute;
+    top:610px;
+	left:285px;
+	z-index:100;
+}
+
+.top__oheya_btn{
+	margin:170px 50px 0 0;
+}
+
+.top__taiken__text p{
+	font-family: 'Shippori Mincho', serif;
+	writing-mode:vertical-rl;
+}
+
+.top__taiken__text{
+	display:flex;
+}
+
+.top__taikenbox{
+	position:relative;
+	height:1400px;
+}
+
+.top__taiken_img1{
+	display:flex;
+}
+
+.top__taiken_img2{
+	position:absolute;
+	display:flex;
+	top:814px;
+}
+
+
+.top__taiken_img3{
+	position:absolute;
+	top:0;
+	left:750px;
+	display:flex;
+}
+
+.top__taiken_img4{
+	display:flex;
+	position:absolute;
+	top:320px;
+	left:585px;
+}
+
+.top__taiken_img5{
+	display:flex;
+	position:absolute;
+	top:714px;
+	left:516px;
+}
+
+
+.top__taikenbox p{
+	font-family: 'Shippori Mincho', serif;
+	writing-mode:vertical-rl;
+	margin-left:10px;
+}
+
+.top__taiken__text{
+	position:absolute;
+	top:1110px;
+	left:50px;
+}
+
+.top__taiken_btn{
+	margin-right:50px;
+	
+}
+
+.top__osakanasan{
+	position:absolute;
+	top:1105px;
+	left:415px;
+}
+
+@media only screen and (max-width:500px) {
+	.top__main img, object, embed, video {max-width: 100%;height:auto;}
+	
+	/* .wrapper {
+		width:auto;
+	} */
+	.main_imgBox{
+		min-width:100%;
+	}
+	
+	.main_img{
+		min-width:100%;
+	}
+	
+	.top__header{
+		min-width:100%;
+	}
+	
+	.top__aboutbox1__wrapper{
+		width:100%;
+	}
+	
+	.top__inoshishi1{
+		min-width:100px;
+		
+	}
+	
+	.top__about__btn{
+		writing-mode: horizontal-tb;
+	}
+	
+	.top__aboutbox2__wrapper{
+		width:100%;
+		/* padding: 100px 10% 190px 10%; */
+		padding: 0;
+	}
+	.top__aboutbox2__wrapper blockquote{
+		width: 70%;
+		height: 300px;
+		margin: 100px 15%;
+	}
+			
+	.top__titlebox__wrapper{
+		width:100%;	
+	}
+	
+	.top__onsenbox{
+		min-width:100%;
+	}
+	
+	.top__onsenbox__wrapper{
+		padding:27% 65% 13% 35%;	
+	}
+	
+	.top__titlebox{
+		width:100%;	
+	}
+	
+	.top__osyokujibox p{
+		writing-mode:initial;
+	}
+	
+	.top__osyokujibox{
+		display:flex;
+		flex-direction:column;
+	}
+	
+	.top__osyokuji_imgbox{
+		position:initial;
+	}
+	
+	.top__osyokuji__text{
+		margin-top:10%;
+		display:flex;
+		flex-direction:column-reverse;
+		order:4;
+	}
+	
+	.top__osyokuji__text p{
+		margin-left:10%;
+	}
+	
+	.top__osyokuji__btn{
+		font-size:14px;
+		margin-top:5%;
+	}
+	
+	
+	.top__osyokuji_img1{
+		display:none!important;
+		order:1;
+	}
+	
+	
+	.top__osyokuji_img2{
+		position:initial;
+		width:100%;
+		order:2;
+		
+	}
+	
+	.top__osyokuji_img3{
+		position:initial;
+		width:100%;
+		order:3;
+		
+	}
+		
+	.top__osyokuji_img4{
+		position:initial;
+		width:100%;
+		order:4;
+	}
+	
+	.top__oheyabox{
+		display:flex;
+		flex-direction:column;
+	}
+		
+	
+	.top__oheya_img1{
+		position:initial;
+		width:100%;
+		order:1;
+	}
+	
+	
+	.top__oheya_img2{
+		position:initial;
+		width:100%;
+		order:2;
+	}
+	
+	.top__oheya_img3{
+		position:initial;
+		width:100%;
+		order:3;
+	}
+	
+	.top__oheya__text p{
+		writing-mode:initial;	
+		
+	}
+	
+	.top__oheya__text{
+		width:90%;
+		position:initial;
+		order:4;
+		margin-top:10%;
+		margin-left:10%;
+		display:flex;
+		flex-direction:column-reverse;
+	}
+	
+	
+	.top__oheya_btn{
+		margin-top:5%;
+	}
+	
+	
+	.top__inoshishi2{
+		display:none;
+	}
+	
+	
+	.top__taikenbox{
+		display:flex;
+		flex-direction:column;
+		height:1350px;
+	}
+		
+	
+	.top__taiken_img1{
+		position:initial;
+		width:100%;	
+		display:none!important;
+	}
+	
+	
+	
+	
+	.top__taiken_img2{
+		position:initial;
+		width:100%;	
+		display:none!important;
+	}
+	
+	
+	.top__taiken_img3{
+		position:initial;
+		width:100%;	
+		display:block;
+	}
+	
+	.top__taiken_img3 p{
+		writing-mode:initial;
+	}
+		
+	
+	.top__taiken_img4{
+		position:initial;
+		width:100%;
+		display:block;	
+	}
+	
+	.top__taiken_img4 p{
+		writing-mode:initial;
+	}
+	
+	
+	.top__taiken_img5{
+		position:initial;
+		width:100%;	
+		display:block;
+	}
+	
+	.top__taiken_img5 p{
+		writing-mode:initial;
+	}
+	
+	.top__taiken__text{
+		margin-top:10%;
+		margin-left:10%;
+		display:flex;
+		flex-direction:column-reverse;
+		top: 1020px;
+	}
+		
+		
+	.top__taiken__text p{
+		writing-mode:initial;
+	}
+	
+	.top__osakanasan{
+	position:absolute;
+	top: 925px;
+    left: 210px;
+	}
+	/*************************************************************************************
+	***** トップページ（スマホ）　詳細ページへボタン　ホバー時スタイル　
+	*************************************************************************************/
+	
+	.top__link:hover{
+		transform: translateX(10px);
+    	display: block;
+	}
+	.top__link:hover > .top__blackarea__btn,
+	.top__link:hover > .top__whitearea__btn{
+		transform: translateX(0px);
+	}
+
+	.top__link::before{
+		display: none;
+	}
+}
+
+/*************************************************************************************
+***
+*** お部屋　ページ
+***
+*************************************************************************************/
+.room__h3,
+.room__h4{
+	font-size: 20px;
+}
+/*************************************************************************************
+***** お部屋　ヘッダ
+*************************************************************************************/
+.room__header{
+	position: relavite;
+}
+
+.room__main-image{
+	position: relative;
+	width: 100vw;
+	height: 450px;
+	background-image: url(../img/room/main-image.jpg);
+	background-size: cover;
+	background-position: center;
+}
+.room__main-image-text{
+	position: absolute;
+	left:50%;
+	top: 30%;
+	transform: translateX(-50%);
+    filter: invert(1);
+}
+
+/*************************************************************************************
+***** お部屋　コンセプト
+*************************************************************************************/
+
+.room__concept-explain{
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: center;
+	padding-top: 102px;
+	padding-bottom: 130px;
+}
+.room__concept-explain > p {
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+	font-family: 'Shippori Mincho', serif;
+	font-size: 20px;
+}
+.room__concept-title{
+	position: relative;
+	margin-left: 137px;
+}
+.room__concept-title > h3 {
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+	font-family: 'Shippori Mincho', serif;
+	font-weight: bold;
+
+}
+.room__concept-title > img {
+	position: absolute;
+	top: 23px;
+    right: -28px;
+}
+.room__concept-image{
+	position: relative;
+	margin-bottom: 226px;
+}
+.room__concept-image > img{
+	width: 100%;
+}
+.room__concept-image > p{
+	position: absolute;
+	top:420px;
+	left: 760px;
+	color:#fff;
+	font-size: 14px;
+	letter-spacing: 0.35rem;
+
+}
+/*************************************************************************************
+***** お部屋　風月の間
+*************************************************************************************/
+.room__huugetsu-no-ma{
+	position: relative;
+	font-size: 12px;
+	height: 2580px;
+}
+.room__huugetsu-no-ma__description{
+	background: url(../img/room/huugetsu-no-ma-bg.png);
+	padding: 29px 0 243px 13px;
+	position: absolute;
+	top:168px;
+	left: 14px;
+}
+.room__huugetsu-no-ma__description > h3 {
+	font-size: 20px;
+	margin-bottom: 61px;
+}
+.room__huugetsu-no-ma__description > p {
+	font-size: 12px;
+}
+.room__huugetsu-no-ma__image01{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	font-size: 12px;
+}
+.room__huugetsu-no-ma__image01 > img {
+	margin-bottom: 10px;
+}
+.room__huugetsu-no-ma__image02{
+	position: absolute;
+	top:649px;
+	left: 0px;
+}
+.room__huugetsu-no-ma__image02 > p {
+	margin-bottom: 10px;
+}
+
+.room__huugetsu-no-ma__image03{
+	position: absolute;
+	top:1121px;
+	left: 0px;
+
+}
+.room__huugetsu-no-ma__image03 > p {
+	margin-bottom: 10px;
+}
+
+.room__huugetsu-no-ma__image04{
+	position: absolute;
+	top:991px;
+	right: 0px;
+}
+.room__huugetsu-no-ma__image05{
+	position: absolute;
+	top:1536px;
+	left: 94px;
+}
+.room__huugetsu-no-ma__image06{
+	position: absolute;
+	top:1567px;
+	right: 0px;
+}
+.room__huugetsu-no-ma__image07{
+	position: absolute;
+	top:1819px;
+	right: 139px;
+}
+/*************************************************************************************
+***** お部屋　山水の間
+*************************************************************************************/
+.room__sansui-no-ma{
+	position: relative;
+	font-size: 12px;
+	height: 2153px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.room__sansui-no-ma > .room__boar{
+	margin: 0 auto;
+	padding-left: 470px;
+}
+.room__sansui-no-ma__description{
+	background: url(../img/room/sansui-no-ma-bg01.png);
+	padding: 34px 0 143px 576px;
+
+	position: absolute;
+	top:111px;
+	left: 14px;
+}
+.room__sansui-no-ma__description > h3 {
+	font-size: 20px;
+	margin-bottom: 61px;
+}
+.room__sansui-no-ma__description > p {
+	font-size: 12px;
+}
+.room__sansui-no-ma__bg2{
+	position: absolute;
+	top: 650px;
+	left: -10px;
+}
+.room__sansui-no-ma__image01{
+	position: absolute;
+	top:0px;
+	left:0px;
+}
+.room__sansui-no-ma__image02{
+	position: absolute;
+	top: 630px;
+	right: 0px;
+}
+.room__sansui-no-ma__image03{
+	position: absolute;
+	top: 897px;
+	left: 1px;
+}
+.room__sansui-no-ma__image04{
+	position: absolute;
+	top: 1217px;
+	left: 1px;
+}
+.room__sansui-no-ma__image04 > p{
+	font-size: 12px;
+	margin-top: 10px;
+}
+.room__sansui-no-ma__image05{
+	position: absolute;
+	top: 1100px;
+	left:557px;
+}
+/*************************************************************************************
+***** お部屋　渓谷の間
+*************************************************************************************/
+.room__keikoku-no-ma{
+	position: relative;
+	font-size: 12px;
+	height: 2294px;
+}
+
+.room__keikoku-no-ma > .room__boar{
+	position: absolute;
+	top:0;
+	left: 141px;
+}
+.room__keikoku-no-ma__description{
+	background: url(../img/room/keikoku-no-ma-bg01.png);
+	padding: 20px 0px 100px 30px;
+}
+.room__keikoku-no-ma__description > h3 {
+	font-size: 20px;
+	margin-bottom: 61px;
+}
+.room__keikoku-no-ma__description > p {
+	font-size: 12px;
+}
+.room__keikoku-no-ma__bg2{
+	position: absolute;
+	top: 666px;
+	right: 84px;
+}
+.room__keikoku-no-ma__image01{
+	position: absolute;
+	top: 260px;
+	right:0;
+}
+.room__keikoku-no-ma__image02{
+	position: absolute;
+	top: 773px;
+	left: 45px;
+	
+}
+.room__keikoku-no-ma__image03{
+	position: absolute;
+	top: 734px;
+	right:147px;	
+}
+.room__keikoku-no-ma__image04{
+	position: absolute;
+	top: 1078px;
+	left:361px;	
+	
+}
+.room__keikoku-no-ma__image05{
+	position: absolute;
+	top: 1092px;
+	right: 88px;
+}
+.room__keikoku-no-ma__image06{
+	position: absolute;
+	top: 1469px;
+	left: 94px;
+	display: flex;
+}
+.room__keikoku-no-ma__image06__description {
+	margin-top:78px;
+	margin-right: 36px;
+}
+.room__keikoku-no-ma__image06__description > h4 {
+	margin-bottom: 36px;
+}
+
+/*************************************************************************************
+***
+*** 料理　ページ
+***
+*************************************************************************************/
+.dining__h3,
+.dining__h4{
+	font-size: 20px;
+}
+.dining__caption{
+	margin-top: 10px;
+}
+/*************************************************************************************
+***** 料理　ヘッダ
+*************************************************************************************/
+.dining__header{
+	position: relavite;
+}
+
+.dining__main-image{
+	position: relative;
+	width: 100vw;
+	height: 450px;
+	background-image: url(../img/dining/main-image.jpg);
+	background-size: cover;
+	background-position: center;
+}
+.dining__main-image-text{
+	position: absolute;
+	left:50%;
+	top: 30%;
+	transform: translateX(-50%);
+}
+/*************************************************************************************
+***** 料理　コンセプト
+*************************************************************************************/
+
+.dining__concept-explain{
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	padding-top: 102px;
+	padding-bottom: 130px;
+}
+.dining__concept-explain > p {
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+	font-family: 'Shippori Mincho', serif;
+	font-size: 20px;
+}
+.dining__concept-title{
+	position: relative;
+	margin-left: 137px;
+}
+.dining__concept-title > h3 {
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+	font-family: 'Shippori Mincho', serif;
+	font-weight: bold;
+
+}
+.dining__concept-title > img {
+	position: absolute;
+	top: -10px;
+    right: -40px;
+}
+/*************************************************************************************
+***** 料理　夕食
+*************************************************************************************/
+.dining__dinner{
+	position: relative;
+	font-size: 12px;
+	height: 2580px;
+}
+.dining__dinner__description{
+	background: url(../img/dining/dinner-bg.png);
+	/* 背景を画面横幅いっぱいに広げる */
+	width: 100vw;
+	margin: 0 calc(50% - 50vw);
+}
+.dining__dinner__description__contents{
+	padding: 29px 0 243px 13px;
+}
+.dining__dinner__description__contents > h3 {
+	font-size: 20px;
+	color:#fff;
+	margin-bottom: 61px;
+}
+.dining__dinner__description__contents > p {
+	font-size: 12px;
+	color:#fff;
+}
+.dining__dinner__image01{
+	position: absolute;
+	top: -16px;
+	right: 0px;
+}
+.dining__dinner__image02{
+	position: absolute;
+	top:490px;
+	left: 0;
+}
+.dining__dinner__image03 {
+	position: absolute;
+	top:612px;
+	right: 0;
+}
+.dining__dinner__image04 {
+	position: absolute;
+	top:1026px;
+	left: 0;
+}
+.dining__dinner__image05 {
+	position: absolute;
+	top:1057px;
+	right: 0;
+}
+.dining__dinner__image06 {
+	position: absolute;
+	top:1552px;
+	left: 289px;
+}
+.dining__dinner__image07 {
+	position: absolute;
+	top:1598px;
+	right: 0px;
+}
+.dining__dinner__image07 > p > span{
+	font-size: 10px;
+	margin-left: 10px;
+}
+/*************************************************************************************
+***** 料理　翡翠のおすすめ
+*************************************************************************************/
+.dining__recommend{
+	position: relative;
+	font-size: 12px;
+	height: 2224px;
+}
+.dining__recommend__description{
+	background: #e5e5e5;
+	width: 100%;
+}
+.dining__recommend__description__contents{
+	padding: 29px 0 168px 13px;
+}
+.dining__recommend__description__contents > h3 {
+	font-size: 20px;
+	color:#040404;
+	margin-bottom: 61px;
+}
+.dining__recommend__description__contents > p {
+	font-size: 12px;
+	color:#040404;
+}
+.dining__recommend__image01{
+	position: absolute;
+	top: -47px;
+	right: 11px;
+}
+.dining__recommend__image02{
+	position: absolute;
+	top: 320px;
+	left: 0px;
+	z-index: 10;
+}
+.dining__recommend__wasabi__description{
+	position: absolute;
+	top: 598px;
+	right: 0px;
+}
+.dining__recommend__image03{
+	position: absolute;
+	top: 598px;
+	left: 259px;
+}
+.dining__recommend__wine__description{
+	position:absolute;
+	top: 989px;
+	left: 93px;
+}
+.dining__recommend__image04{
+	position: absolute;
+	top: 922px;
+	right: 93px;
+}
+.dining__recommend__image05{
+	position: absolute;
+	top: 1301px;
+	left: 225px;
+}
+.dining__recommend__image06{
+	position: absolute;
+	top: 1587px;
+	right: 5px;
+}
+/*************************************************************************************
+***** 料理　朝食
+*************************************************************************************/
+.dining__breakfast{
+	position: relative;
+	font-size: 12px;
+	height: 1348px;
+}
+.dining__breakfast__description{
+	background: #e5e5e5;
+	width: 100%;
+}
+.dining__breakfast__description__contents{
+	padding: 29px 0 243px 38px;
+}
+.dining__breakfast__description__contents > h3 {
+	font-size: 20px;
+	color:#040404;
+	margin-bottom: 61px;
+}
+.dining__breakfast__description__contents > p {
+	font-size: 12px;
+	color:#040404;
+}
+.dining__breakfast__image01{
+	position: absolute;
+	top: -38px;
+	right: 0px;
+}
+.dining__breakfast__image02{
+	position: absolute;
+	top: 175px;
+	left: 0px;
+}.dining__breakfast__image03{
+	position: absolute;
+	top: 353px;
+	right: 66px;
+}.dining__breakfast__image04{
+	position: absolute;
+	top: 564px;
+	left: 133px;
+}
+
+/*************************************************************************************
+***
+*** 温泉　ページ
+***
+*************************************************************************************/
+.onsen__h3,
+.onsen__h4{
+	font-size: 20px;
+}
+.onsen__caption{
+	margin-top: 10px;
+}
+/*************************************************************************************
+***** 温泉　ヘッダ
+*************************************************************************************/
+.onsen__header{
+	position: relavite;
+}
+.onsen__main-image{
+	position: relative;
+	width: 100vw;
+	height: 450px;
+	background-image: url(../img/onsen/main-image.png);
+	background-size: cover;
+	background-position: center;
+}
+.onsen__main-image-text{
+	position: absolute;
+	left:50%;
+	top: 30%;
+	transform: translateX(-50%);
+}
+/*************************************************************************************
+***** 温泉　コンセプト
+*************************************************************************************/
+
+.onsen__concept-explain{
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	padding-top: 102px;
+	padding-bottom: 130px;
+}
+.onsen__concept-explain > p {
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+	font-family: 'Shippori Mincho', serif;
+	font-size: 20px;
+	line-height: 2;
+	letter-spacing: 0.3em;
+}
+.onsen__concept-title{
+	position: relative;
+	margin-left: 137px;
+}
+.onsen__concept-title > h3 {
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+	font-family: 'Shippori Mincho', serif;
+	font-weight: bold;
+
+}
+.onsen__concept-title > img {
+	position: absolute;
+	top: -10px;
+    right: -40px;
+}
+.onsen__description{
+	text-align: center;
+	font-size: 20px;
+	line-height: 2;
+	margin-bottom: 235px;
+}
+/*************************************************************************************
+***** 温泉　せせらぎの湯
+*************************************************************************************/
+.onsen__seseragi-no-yu{
+	position: relative;
+	font-size: 12px;
+	height: 1050px;
+}
+.onsen__seseragi-no-yu__description{
+	background: url(../img/onsen/seseragi-no-yu__bg.png);
+	width: 320px;
+	height: 320px;
+	margin-left: 141px;
+}
+.onsen__seseragi-no-yu__description__contents{
+	padding-top: 80px;
+}
+.onsen__seseragi-no-yu__description__contents > h3 {
+	font-size: 20px;
+	color:#fff;
+	margin-bottom: 30px;
+	text-align: center;
+}
+.onsen__seseragi-no-yu__description__contents > p {
+	font-size: 12px;
+	color:#fff;
+	text-align: center;
+	letter-spacing: 0.1em;
+	
+}
+.onsen__seseragi-no-yu__image01{
+	position: absolute;
+	top: 53px;
+	right: 86px;
+}
+.onsen__seseragi-no-yu__image02{
+	position: absolute;
+	top: 540px;
+	left: 86px;
+}
+.onsen__seseragi-no-yu__image03{
+	position: absolute;
+	top: 540px;
+	right: 86px;
+}
+
+/*************************************************************************************
+***** 温泉　もりの湯
+*************************************************************************************/
+.onsen__mori-no-yu{
+	position: relative;
+	font-size: 12px;
+	height: 1050px;
+}
+.onsen__mori-no-yu__description{
+	background: url(../img/onsen/mori-no-yu__bg.png);
+	width: 320px;
+	height: 320px;
+	margin-left: 768px;
+}
+.onsen__mori-no-yu__description__contents{
+	padding-top: 80px;
+}
+.onsen__mori-no-yu__description__contents > h3 {
+	font-size: 20px;
+	color:#040404;
+	margin-bottom: 30px;
+	text-align: center;
+}
+.onsen__mori-no-yu__description__contents > p {
+	font-size: 12px;
+	color:#040404;
+	text-align: center;
+	letter-spacing: 0.1em;
+
+}
+.onsen__mori-no-yu__image01{
+	position: absolute;
+	top: 53px;
+	left: 72px;
+}
+.onsen__mori-no-yu__image02{
+	position: absolute;
+	top: 535px;
+	left: 72px;
+}
+.onsen__mori-no-yu__image03{
+	position: absolute;
+	top: 535px;
+	right: 174px;
+}
+
+
+/*******************************************************************************************************************************
+***
+***
+***
+*** 体験ページ
+***
+***
+***
+********************************************************************************************************************************/
+/*************************************************************************
+***
+*** 体験ページ box00ヘッダー
+***
+*************************************************************************/
+.activity__box00{position: relative;
+				/*background-image:url("../img/activity/images/newgreen00_01.png");*/
+				background-image: url("../img/activity/images/newgreen01_01.png");
+				background-size:cover;
+				background-position:center;
+				height:450px;
+}
+
+.activity__btn00{position: absolute;
+				top:215px;
+				left:50%;
+				transform: translateX(-50%); 
+}
+.aboutus__main{background-color:#fff;}
+
+
+
+/*************************************************************************
+***
+*** 体験ページ box01はじめの言葉
+***
+*************************************************************************/
+.activity__box01{background-image: url("../img/activity/images/mark_05.png");
+		width: auto;
+		height: 600px;
+		display: flex;
+		margin-top: 60px;
+}
+.activity__btn01{margin: 60px 110px 0px 520px;}
+.activity__btn02{margin-top: 40px;}
+
+/*************************************************************************
+***
+*** 体験ページ box02狩猟体験 
+***
+*************************************************************************/
+.activity__box02{margin-top: 200px;
+		display: flex;}
+.activity__btn03{margin-right:66px;}
+.activity__btn04{width: 600px;}
+.activity__mediumbtn01{margin-top: 40px;}
+.activity__mediumbtn02{display: flex;
+			justify-content: flex-start;
+			justify-content: space-between;
+			margin-top: 82px;
+}
+.activity__smallbtn00{margin-bottom: 40px;}
+.activity__smallbtn01{margin-bottom: 40px;}
+
+.activity__smallbtn02p{margin-left: 20px;}
+
+/*************************************************************************
+***
+*** 体験ページ box03釣り体験 
+***
+*************************************************************************/
+.activity__box03{margin-top: 200px;
+		display: flex;}
+.activity__btn05{margin-left:66px;}
+.activity__btn04{width: 600px;}
+.activity__mediumbtn01{margin-top: 40px;}
+.activity__mediumbtn04{display: flex;
+			justify-content: flex-end;
+			justify-content: space-between;
+			margin-top: 58px;
+}
+.activity__smallbtn00{margin-bottom: 40px;}
+
+/*************************************************************************
+***
+*** 体験ページ box04山菜狩り　
+***
+*************************************************************************/
+.activity__box02{margin-top: 200px;
+		display: flex;}
+.activity__btn03{margin-right:66px;}
+.activity__btn04{width: 600px;}
+.activity__mediumbtn01{margin-top: 40px;}
+.activity__mediumbtn05{display: flex;
+			justify-content: flex-start;
+			justify-content: space-between;
+			margin-top: 99px;
+}
+.activity__smallbtn00{margin-bottom: 40px;}
+.activity__smallbtn01{margin-bottom: 40px;}
+
+.activity__smallbtn02p{margin-left: 20px;}
+
+/*************************************************************************
+***
+*** 体験ページ  box05写経　
+***
+*************************************************************************/
+.activity__box03{margin-top: 200px;
+		display: flex;}
+.activity__btn05{margin-left:66px;}
+.activity__btn04{width: 600px;}
+.activity__mediumbtn01{margin-top: 40px;}
+.activity__mediumbtn06{display: flex;
+			justify-content: flex-end;
+			justify-content: space-between;
+			margin-top:136px;
+}
+.activity__smallbtn00{margin-bottom: 40px;}
+/*************************************************************************
+***
+*** 体験ページ box06雲海鑑賞
+***
+*************************************************************************/
+.activity__box02{margin-top: 200px;
+		display: flex;}
+.activity__btn03{margin-right:66px;}
+.activity__btn04{width: 600px;}
+.activity__mediumbtn01{margin-top: 40px;}
+.activity__mediumbtn07{display: flex;
+			justify-content: flex-start;
+			justify-content: space-between;
+			margin-top: 76px;
+}
+.activity__smallbtn00{margin-bottom: 40px;}
+.activity__smallbtn01{margin-bottom: 40px;}
+
+.activity__smallbtn02p{margin-left: 20px;}
+
+
+
+
+
+
+
+
+
+/***********************************************************************************************************************************************************
+***
+***
+***
+*** アクセスページ
+***
+***
+***
+*************************************************************************************************************************************************************/
+
+/*************************************************************************************
+***
+*** アクセスページヘッダーbox000
+***
+*************************************************************************************/
+.access__box000{position: relative;
+				background-image:url(../img/access/images/newtrain_01.png);
+				background-size:cover;
+				background-position:center;
+				height:450px;
+}
+
+.access__btn000{position: absolute;
+				top:215px;
+				left:50%;
+				transform: translateX(-50%);
+}
+
+
+
+
+
+/*************************************************************************************
+***
+*** アクセスページbox0
+***
+*************************************************************************************/
+.access__box0{margin:100px auto;
+}
+
+
+/*************************************************************************************
+***
+*** アクセスページbox0102
+***
+*************************************************************************************/
+
+.access__displyflex{display:flex;
+					margin-bottom:150px;
+}
+.access__btn0102{margin:0px 55px 100px 100px;
+}
+.access__btn0204{margin-top:20px;
+}
+
+
+/*************************************************************************************
+***
+*** アクセスページbox03
+***
+*************************************************************************************/
+.access__border{border-bottom:1px solid #000;
+		width:auto;
+		margin-top:15px;
+}
+
+
+/*************************************************************************************
+***
+*** アクセスページbox04
+***
+*************************************************************************************/
+.access__btn05{text-align:center;
+	margin:50px 0px 45px 115px;
+}
+.access__btn06{margin-left:162px;}
+.access__btn06p{margin-bottom:20px;}
+.access__smallbtn01{margin-bottom: 40px;}
+
+.access__smallbtn02p{margin-left: 20px;}
+
+
+/*************************************************************************************
+***
+*** アクセスページbox05MAP
+***
+*************************************************************************************/
+.access__box05{margin-top:100px;}
+
+
+
+
+
+
+/************************************************************************************************************************************************************************
+***
+***
+***
+*** 翡翠についてページ
+***
+***
+***
+**************************************************************************************************************************************************************************/
+
+/**************************************************************************
+***
+*** 翡翠についてページフォント
+***
+*************************************************************************/
+.shippori{font-family: 'Shippori Mincho', serif;
+			font-size:20px;
+			margin-bottom:20px;
+			
+}
+
+.shipporibold{font-family: 'Shippori Mincho', serif;
+				font-size:20px;
+				font-weight:bold;
+				text-align:center;
+				
+}
+
+.shipporicolumn{font-family: 'Shippori Mincho', serif;
+					font-size:20px;
+					writing-mode: vertical-rl;
+					
+}
+
+.shipporicolumnbold{font-family: 'Shippori Mincho', serif;
+					font-size:20px;
+					font-weight:bold;
+					writing-mode: vertical-rl;
+					
+}
+
+
+/**************************************************************************************
+***
+***
+翡翠についてページ ヘッダーbox00  
+***
+***
+***************************************************************************************/
+.aboutus__box00{position: relative;
+				background-image:url(../img/aboutus/aboutus_01.png);
+				background-size:cover;
+				background-position:center;
+				height:450px;}
+.aboutus__btn00{position: absolute;
+				top:215px;
+				left:50%;
+				transform: translateX(-50%); 
+}
+
+
+/**************************************************************************************
+***
+***
+翡翠についてページ はじめの言葉box01 
+***
+***
+***************************************************************************************/
+.aboutus__box01{background-image:url("../img/aboutus/renewbackground_03.png");
+				background-repeat:no-repeat;
+				height:628px;
+}
+.aboutus__btn01{display:flex;
+				margin: 63px 0px 0px 500px;
+}
+.aboutus__btn01p{margin-top:60px;}
+.aboutus__btn02p{margin-left:90px;}
+.aboutus__indent{text-indent: 1em;}
+
+
+/**************************************************************************************
+***
+***
+翡翠についてページ　１日３組限定のところbox02
+***
+***
+***************************************************************************************/
+.aboutus__btn02{display: flex;}
+.aboutus__btn03{display: flex;
+				margin-top: 35px;}
+.aboutus__ssbtn{margin-bottom: 35px;}
+.aboutus__smallbtn01{margin: 278px 70px 0px 97px;}
+.aboutus__smallbtn04{margin: 133px 83px 0px 235px;}
+
+
+
+/**************************************************************************************
+***
+***
+翡翠についてページ　自然に癒されるところbox03
+***
+***
+***************************************************************************************/
+.aboutus__box03{margin-top: 196px;}
+.aboutus__btn04{display: flex;}
+.aboutus__btn05{position: relative;}
+.aboutus__smallbtn06{margin: 200px 120px 0px 100px;}
+.aboutus__ssbtn03{margin-bottom: 35px;}
+.aboutus__smallbtn07{position: absolute;
+					top:-28px;
+					left:545px;}
+.aboutus__btn06{margin: 300px 0px 0px 70px;}
+.aboutus__smallbtn08{position: absolute;
+					top:-50px;
+					left: 66px;}
+
+
+/**************************************************************************************
+***
+***
+翡翠についてページ　雲海、非日常体験のところbox04
+***
+***
+***************************************************************************************/
+.aboutus__box04{margin-top: 186px;}
+.aboutus__btn07{display: flex;}
+.aboutus__smallbtn09{margin: 200px 160px 0px 94px;}
+.aboutus__ssbtn05{margin-bottom: 35px;}
+.aboutus__btn08{position: relative;}
+.aboutus__smallbtn011{position: absolute;
+						top: -24px;}
+.aboutus__btn09{margin:330px 93px 0px 770px;}
+
