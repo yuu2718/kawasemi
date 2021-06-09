@@ -524,7 +524,7 @@ footer a{
 	transition: opacity 1s;
 }
 .pace .pace-progress-inner{
-	background-image: url(../img/common/loader_okotonushi_btn.png);
+	background-image: url(../img/common/loader_okotonushi_btn.gif);
 	background-size: contain;
 	background-position: center;
     background-repeat: no-repeat;
@@ -1076,7 +1076,7 @@ footer a{
 	.top__aboutbox2__wrapper blockquote{
 		width: 70%;
 		height: 300px;
-		margin: 100px 15%;
+		margin: 100px 5%;
 	}
 			
 	.top__titlebox__wrapper{
