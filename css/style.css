@@ -380,6 +380,9 @@ footer a{
 	.footer__menu > li:nth-child(odd){
 		margin-left: 0;
 	}
+	.footer__menu > li > a{
+		position: relative;
+	}
 	.footer__menu > li > a::before{
 		content: "";
 		display: inline-block;
@@ -832,7 +835,10 @@ footer a{
 
 
 .top__onsenbox{
+	height:810px;
 	background-image:url(../img/top/top_onsen.png);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 
@@ -1088,7 +1094,7 @@ footer a{
 	}
 	
 	.top__onsenbox__wrapper{
-		padding:27% 65% 13% 35%;	
+		padding:27% 5% 13% 5%;	
 	}
 	
 	.top__titlebox{
