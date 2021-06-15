@@ -779,6 +779,7 @@ footer a{
 .top__aboutbox1__wrapper{
 	display:flex;
 	justify-content:center;
+	flex-direction: row-reverse;
 	height:770px;	
 	}
 
