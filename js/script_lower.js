@@ -53,9 +53,9 @@ $(function(){
         $('.effect-fade').each(function(){
             var elemPos = $(this).offset().top;
             // デバッグ用
-            console.log("elemPos="+ elemPos);
-            console.log("scroll="+ scroll);
-            console.log("windowHeight="+ windowHeight);
+            // console.log("elemPos="+ elemPos);
+            // console.log("scroll="+ scroll);
+            // console.log("windowHeight="+ windowHeight);
     
             if (scroll - 200 > elemPos - windowHeight){
     

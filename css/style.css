@@ -37,6 +37,9 @@ body::-webkit-scrollbar {
 		width: 90vw;
 		margin: 0 auto;
 	}
+	img {
+		max-width: 100vw;
+	}
 }
 /*****************************************************************
 ****  ふわっとした表示                                           ****
@@ -1309,6 +1312,12 @@ footer a{
 .room__h4{
 	font-size: 20px;
 }
+
+@media only screen and (max-width:500px) {
+	.room__boar{
+		width: initial !important;
+	}
+}
 /*************************************************************************************
 ***** お部屋　ヘッダ
 *************************************************************************************/
@@ -1452,6 +1461,36 @@ footer a{
 	top:1819px;
 	right: 139px;
 }
+
+@media only screen and (max-width:500px) {
+
+	.room__huugetsu-no-ma {
+		height: auto;
+		margin-bottom: 50px;
+
+	}
+	.room__huugetsu-no-ma img{
+		width: 100%;
+	}
+
+	.room__huugetsu-no-ma__description,
+	.room__huugetsu-no-ma__image01,
+	.room__huugetsu-no-ma__image02,
+	.room__huugetsu-no-ma__image03,
+	.room__huugetsu-no-ma__image04,
+	.room__huugetsu-no-ma__image05,
+	.room__huugetsu-no-ma__image06,
+	.room__huugetsu-no-ma__image07{
+		position: static;
+		margin-bottom: 30px;
+		padding: 0;
+	}
+
+	
+	.room__huugetsu-no-ma__image03 > p {
+		margin-bottom: 10px;
+	}	
+}
 /*************************************************************************************
 ***** お部屋　山水の間
 *************************************************************************************/
@@ -1487,6 +1526,7 @@ footer a{
 	position: absolute;
 	top: 650px;
 	left: -10px;
+	width: 100vw;
 }
 .room__sansui-no-ma__image01{
 	position: absolute;
@@ -1516,6 +1556,37 @@ footer a{
 	position: absolute;
 	top: 1100px;
 	left:557px;
+}
+
+@media only screen and (max-width:500px) {
+	.room__sansui-no-ma {
+		height: auto;
+		margin-bottom: 50px;
+	}
+	.room__sansui-no-ma img{
+		width: 100%;
+	}	
+	.room__sansui-no-ma > .room__boar{
+		padding-left: 0;
+	}
+	.room__sansui-no-ma__image01,
+	.room__sansui-no-ma__image02,
+	.room__sansui-no-ma__image03,
+	.room__sansui-no-ma__image04,
+	.room__sansui-no-ma__image05{
+		position: static;
+		margin-bottom: 30px;
+	}
+	.room__sansui-no-ma__description{
+		position: relative;
+		top: 0;
+		padding: 0;
+		margin-bottom: 30px;
+	}
+	.room__sansui-no-ma__bg2{
+		display: none;
+	}
+
 }
 /*************************************************************************************
 ***** お部屋　渓谷の間
@@ -1588,6 +1659,36 @@ footer a{
 	margin-bottom: 36px;
 }
 
+@media only screen and (max-width:500px) {
+	.room__keikoku-no-ma{
+		height: auto;
+		margin-bottom: 150px;
+	}
+	.room__keikoku-no-ma img{
+		width: 100%;
+	}	
+	.room__keikoku-no-ma__description{
+		padding-bottom: 30px;
+	}
+	.room__keikoku-no-ma__bg2{
+		display: none;
+	}
+	.room__keikoku-no-ma__image01,
+	.room__keikoku-no-ma__image02,
+	.room__keikoku-no-ma__image03,
+	.room__keikoku-no-ma__image04,
+	.room__keikoku-no-ma__image05{
+		position: static;
+		margin-bottom: 30px;
+	}
+	.room__keikoku-no-ma__image06{
+		position: static;
+		display: block;
+	}
+	.room__keikoku-no-ma__image06__description {
+		margin-top: 0;
+	}
+}
 /*************************************************************************************
 ***
 *** 料理　ページ
@@ -1946,6 +2047,25 @@ footer a{
 	right: 86px;
 }
 
+@media only screen and (max-width:500px) {
+	.onsen__seseragi-no-yu{
+		height: auto;
+		margin-bottom: 50px;
+	}
+	.onsen__seseragi-no-yu img{
+		width: 100%;
+	}
+	.onsen__seseragi-no-yu__description{
+		margin-left: 0;
+		margin-bottom: 30px;
+	}
+	.onsen__seseragi-no-yu__image01,
+	.onsen__seseragi-no-yu__image02,
+	.onsen__seseragi-no-yu__image03{
+		position: static;
+		margin-bottom: 30px;
+	}
+}
 /*************************************************************************************
 ***** 温泉　もりの湯
 *************************************************************************************/
@@ -1953,6 +2073,9 @@ footer a{
 	position: relative;
 	font-size: 12px;
 	height: 1050px;
+}
+.onsen__mori-no-yu img{
+	width: 100%;
 }
 .onsen__mori-no-yu__description{
 	background: url(../img/onsen/mori-no-yu__bg.png);
@@ -1991,7 +2114,24 @@ footer a{
 	top: 535px;
 	right: 174px;
 }
-
+@media only screen and (max-width:500px) {
+	.onsen__mori-no-yu{
+		height: auto;
+		margin-bottom: 150px;
+	}
+	.onsen__mori-no-yu img{
+		width: 100%;
+	}
+	.onsen__mori-no-yu__description{
+		margin-left: 0;
+	}
+	.onsen__mori-no-yu__image01,
+	.onsen__mori-no-yu__image02,
+	.onsen__mori-no-yu__image03{
+		position: static;
+		margin-bottom: 30px;
+	}
+}
 
 /*******************************************************************************************************************************
 ***
@@ -2038,6 +2178,11 @@ footer a{
 .activity__btn01{margin: 60px 110px 0px 520px;}
 .activity__btn02{margin-top: 40px;}
 
+@media only screen and (max-width:500px) {
+	.activity__btn01{
+		margin-left: 0px;
+	}
+}
 /*************************************************************************
 ***
 *** 体験ページ box02狩猟体験 
@@ -2058,6 +2203,19 @@ footer a{
 
 .activity__smallbtn02p{margin-left: 20px;}
 
+@media only screen and (max-width:500px) {
+	.activityaccessaboutus__mrgin img{
+		width: 100%;
+		height: auto;
+	}
+	.activity__box02{
+		margin-top: 30px;
+		display: block;
+	}
+	.activity__mediumbtn02{
+		margin-top: 30px;
+	}
+}
 /*************************************************************************
 ***
 *** 体験ページ box03釣り体験 
@@ -2066,8 +2224,6 @@ footer a{
 .activity__box03{margin-top: 200px;
 		display: flex;}
 .activity__btn05{margin-left:66px;}
-.activity__btn04{width: 600px;}
-.activity__mediumbtn01{margin-top: 40px;}
 .activity__mediumbtn04{display: flex;
 			justify-content: flex-end;
 			justify-content: space-between;
@@ -2075,16 +2231,28 @@ footer a{
 }
 .activity__smallbtn00{margin-bottom: 40px;}
 
+@media only screen and (max-width:500px) {
+	.activity__box03{
+		margin-top: 30px;
+		display: block;
+	}
+	.activity__btn04{
+		width: 100%;
+	}
+	.activity__btn05{
+		display: none;
+	}
+	.activity__mediumbtn04{
+		margin-top: 30px;
+	}
+
+}
 /*************************************************************************
 ***
 *** 体験ページ box04山菜狩り　
 ***
 *************************************************************************/
-.activity__box02{margin-top: 200px;
-		display: flex;}
 .activity__btn03{margin-right:66px;}
-.activity__btn04{width: 600px;}
-.activity__mediumbtn01{margin-top: 40px;}
 .activity__mediumbtn05{display: flex;
 			justify-content: flex-start;
 			justify-content: space-between;
@@ -2095,32 +2263,40 @@ footer a{
 
 .activity__smallbtn02p{margin-left: 20px;}
 
+@media only screen and (max-width:500px) {
+	.activity__btn03{
+		display: none;
+	}
+	.activity__mediumbtn05{
+		margin-top: 30px;
+	}
+}
 /*************************************************************************
 ***
 *** 体験ページ  box05写経　
 ***
 *************************************************************************/
-.activity__box03{margin-top: 200px;
-		display: flex;}
 .activity__btn05{margin-left:66px;}
-.activity__btn04{width: 600px;}
-.activity__mediumbtn01{margin-top: 40px;}
 .activity__mediumbtn06{display: flex;
 			justify-content: flex-end;
 			justify-content: space-between;
 			margin-top:136px;
 }
 .activity__smallbtn00{margin-bottom: 40px;}
+
+@media only screen and (max-width:500px) {
+	.activity__mediumbtn06{
+		margin-top: 30px;
+	}
+}
+
 /*************************************************************************
 ***
 *** 体験ページ box06雲海鑑賞
 ***
 *************************************************************************/
-.activity__box02{margin-top: 200px;
-		display: flex;}
 .activity__btn03{margin-right:66px;}
-.activity__btn04{width: 600px;}
-.activity__mediumbtn01{margin-top: 40px;}
+
 .activity__mediumbtn07{display: flex;
 			justify-content: flex-start;
 			justify-content: space-between;
@@ -2131,8 +2307,11 @@ footer a{
 
 .activity__smallbtn02p{margin-left: 20px;}
 
-
-
+@media only screen and (max-width:500px) {
+	.activity__mediumbtn07{
+		margin-top: 30px;
+	}
+}
 
 
 
